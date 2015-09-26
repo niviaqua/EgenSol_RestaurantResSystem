@@ -7,13 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="main.css">
 
+    <script>
+        function initialize() {
+            var mapCanvas = document.getElementById('map');
+            var mapOptions = {
+                center: new google.maps.LatLng(40.7604523,-73.9853341),
+                zoom: 15,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(40.7604523,-73.9853341),
+                map: map,
+                title: 'Nanking Restaurant - An Authentic Indo Chinese Restro!'
+            });
+            var map = new google.maps.Map(mapCanvas, mapOptions)
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 </head>
 
 <body>
+
 <header>
     <h1>Nanking Restaurant</h1>
     <h4>The Authentic Indo Chinese Restaurant of New York City</h4>
@@ -29,7 +48,6 @@
         <li><a href="menu.html">Menu</a></li>
         <li ><a href="reservation.html">Reservation</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-        
     </ul>
 </div>
 
@@ -51,6 +69,19 @@
     effort
     to make your visit enjoyable and memorable.</div>
 
+
+<div class="hr">.</div>
+
+<div class="location-details"><p>Our Location:</p>
+    <div id="map"></div></div>
+
+<div class="contact-details"><p>Contact Details:</p>
+
+<div class="contact-details-box">
+    1634 Broadway 50st - 51st<br>
+    Newyork,NY 10019 <br>
+    Tel: 212-586-3100 Fax: 212-586-3176<br></div>
+</div>
 </body>
 
 </html>
